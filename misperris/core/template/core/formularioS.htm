@@ -1,0 +1,98 @@
+{% extends 'core/base_socio.htm' %}
+{% block titulo %}
+Pagina inicial 
+{% endblock %}
+{% block contenedor %}
+    {% load static %}
+<form method="POST">
+    {% csrf_token %}
+    <table class="tableRegistrar" border="1">
+        
+        <thead>
+            <tr>
+                <th>Formulario de Ingreso de Clientes</th>                        
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rut:</td>
+                <td>
+                    <input type="text" name="txtRun" value="" placeholder="rut sin puntos y con güion" required/> 
+                </td>
+            </tr>
+            <tr>
+                <td>Correo:</td>
+                <td>
+                    <input type="email" name="txtCorreo" value="" placeholder="ej: juan@gmail.com" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre Completo:</td>
+                <td>
+                    <input type="text" name="txtNombre" value="" placeholder="Nombre Apellido" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha Nacimiento:</td>
+                <td>
+                    <input type="date" max="2000-01-01" name="txtFecha" value="" placeholder="año-mes-día" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Telefono:</td>
+                <td>
+                    <input type="text" name="txtTelefono" maxlength="8" value="" placeholder="ej: 42259363"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Region:</td>
+                <td>
+                    <select name="cboRegion">
+                        {% for region in regiones %}
+                        <option>{{region.name}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Ciudades:</td>
+                <td>
+                    <select name="cboCiudad">
+                        {% for ciudad in ciudades %}
+                        <option>{{ciudad.name}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Tipo de Vivienda:</td>
+                <td>
+                    <select name="cboTipo">
+                        {% for tipo_viv in tipo_viviendas %}
+                        <option>{{tipo_viv.name}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Contraseña:</td>
+                <td>
+                    <input type="password" name="txtPass" value="" placeholder="contraseña de usuario" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Codigo Administrador (solo para quienes serán admin):</td>
+                <td>
+                    <input type="text" name="txtCodeadmin" value="" placeholder="codigo de la fundación"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="button" type="submit" value="Enviar" onclick="formulario()" />
+                    <input class="button" type="reset" value="Limpiar" />
+                </td>                        
+            </tr>
+        </tbody>
+    </table>
+</form>
+{% endblock %}

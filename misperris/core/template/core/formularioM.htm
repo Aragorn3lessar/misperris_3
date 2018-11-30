@@ -1,0 +1,74 @@
+{% extends 'core/base_mascota.htm' %}
+{% block titulo %}
+Pagina inicial 
+{% endblock %}
+{% block contenedor %}
+    {% load static %}
+    <form method="POST">
+            {% csrf_token %}
+            <table class="tableIngresar" border="1">
+                
+                <thead>
+                    <tr>
+                        <th>Formulario de Ingreso de Mascotas</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id:</td>
+                        <td>
+                            <input type="text" name="code" value="" placeholder="ingrese id ej:U1" required/> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Foto:</td>
+                        <td>
+                            <input type="file" name="foto" value="" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>
+                            <input type="text" name="nombre" value="" placeholder="ej: Sofia" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Raza:</td>
+                        <td>
+                            <select name="raza">
+                                {% for raza in raza %}
+                                <option>{{raza.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Descripción:</td>
+                        <td>
+                            <input type="text" name="desc" value="" placeholder="ingrese la desc. del can" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Estado:</td>
+                        <td>
+                            <select name="estado">
+                                {% for est in estado %}
+                                <option>{{est.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="button" type="submit" value="Enviar" />
+                            <input class="button" type="reset" value="Limpiar" />
+                        </td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <br>
+    {% if respuesta %}
+       <h1 >Grabo Mascota</h1>
+    {% endif %}
+{% endblock %}

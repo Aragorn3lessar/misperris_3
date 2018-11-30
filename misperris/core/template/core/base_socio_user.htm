@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    {% block js %}
+
+    {% endblock %}
+    {% block css %}
+
+    {% endblock %}
+    <title>
+        {% block titulo %}
+
+        {% endblock %}
+    </title>
+</head>
+<body>
+        <nav>
+                
+                   <ul>
+                        <li><a href="{% url 'logoutS' %}">Salir</a></li>
+                        <li><a href="{% url 'forS2' %}">Registrar</a></li>
+                        <li><a href="">**{{ request.user.username }}**</a></li>
+                
+                    </ul>
+                        <div class='Container'>
+                        <div class="header" id="myHeader">
+                        <img class='Logo' src="{% static 'core/img/logo.png' %}" alt="Logo">
+                        </div>      
+                        </div>        
+                    
+            </nav>
+            
+    {% block contenedor %}
+
+    {% endblock %}
+</body>
+</html>

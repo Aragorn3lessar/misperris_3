@@ -1,0 +1,91 @@
+{% extends 'core/base_mascota.htm' %}
+{% block titulo %}
+Pagina inicial 
+{% endblock %}
+{% block contenedor %}
+    {% load static %}
+    <form method="POST">
+            {% csrf_token %}
+            <table class="tableIngresar" border="1">
+                
+                <thead>
+                    <tr>
+                        <th>Formulario de Modificación de Mascotas</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id:</td>
+                        <td>
+                            <select name="code">
+                                {% for m in mascotas %}
+                                    {% if m.name == ma.name %}
+                                        <option selected>{{m.name}}</option>
+                                    {% else %}
+                                        <option>{{m.name}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <input type="submit" name="btnAccion" value="Buscar"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Foto:</td>
+                        <td>
+                            <input type="file" name="foto" value="{{ma.foto}}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>
+                            <input type="text" name="nombre" value="{{ma.nombre}}" placeholder="ej: Sofia"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Raza:</td>
+                        <td>
+                            <select name="raza">
+                                {% for raza in razas %}
+                                    {% if raza.name == ma.raza.name %}
+                                        <option selected>{{raza.name}}</option>
+                                    {% else %}
+                                        <option>{{raza.name}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Descripción:</td>
+                        <td>
+                            <input type="text" name="desc" value="{{ma.descripcion}}" placeholder="ingrese la desc. del can"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Estado:</td>
+                        <td>
+                            <select name="estado">
+                                {% for est in estados %}
+                                    {% if est.name == ma.estado.name %}
+                                        <option selected>{{est.name}}</option>
+                                    {% else %}
+                                        <option>{{est.name}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="button" type="submit" name="btnAccion" value="Modificar" />
+                            <input class="button" type="reset" value="Limpiar" />
+                        </td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <br>
+    {% if respuesta %}
+       <h1 >Modificó Mascota</h1>
+    {% endif %}
+{% endblock %}

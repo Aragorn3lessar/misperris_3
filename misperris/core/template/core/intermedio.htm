@@ -1,0 +1,53 @@
+{% extends 'core/base.htm' %}
+{% block titulo %}
+Pagina intermedia 
+{% endblock %}
+{% block contenedor %}
+    {% load static %}
+        <div class="content-left">
+
+                    <h3>
+                        <p>                                   
+                            <font face="courier new" class="bold1">PERROS</font>
+                            <font color = "grey" face="courier new" class="greyText">ABANDONADOS</font>
+                        </p>
+
+                        <h3>_____</h3> 
+
+                        <p>
+                             Registra un perro en situación de calle en nuestro Sistema.
+                        </p>
+                        
+                        
+                        
+                    </h3>
+                        
+                         <img src="{% static 'core/img/rescate.jpg' %}" class="img-rescate" >
+                         
+                    <h3>
+                        <a class="button" href="{% url 'logM' %}">REGISTRAR PERRO</a>  
+                    </h3>
+                         
+                     </div>
+     
+                     <div class="content-right">
+                        <img src="{% static 'core/img/crowfunding.jpg' %}" class="img-comida" alt="">
+                        <h3>
+                                <font face="courier new" class="bold" >CONVIÉRTETE</font>
+                                <font color = "grey" face="courier new" class="greyTextRight" >EN CLIENTE</font>
+                        </h3>
+
+                        <h3>_____</h3>
+
+                        <p>
+                            Sé parte de nuestro equipo de Rescate.
+                        </p>
+
+                        <h3>
+                            <a class="button" href="{% url 'logS' %}">GESTIÓN DE USUARIOS</a>  
+                        </h3>
+                        
+
+
+                     </div>
+{% endblock %}

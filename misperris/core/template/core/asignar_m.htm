@@ -1,0 +1,57 @@
+{% extends 'core/base_mascota.htm' %}
+{% block titulo %}
+Pagina inicial 
+{% endblock %}
+{% block contenedor %}
+    {% load static %}
+    <form method="POST">
+            {% csrf_token %}
+            <table class="tableIngresar" border="1">
+                
+                <thead>
+                    <tr>
+                        <th>Adopción de Mascotas</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id Mascota:</td>
+                        <td>
+                            <select name="code">
+                                {% for m in mascotas %}
+                                    {% if m.name == ma.name %}
+                                        <option selected>{{m.name}}</option>
+                                    {% else %}
+                                        <option>{{m.name}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <input type="submit" name="btnAccion" value="Buscar"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Foto:</td>
+                        <td>
+                            <img class="img-listado" src='{% static 'media/' %}{{ma.foto}}'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rut Adoptante:</td>
+                        <td>
+                            <input type="text" name="txtRun"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="button" type="submit" name="btnAccion" value="Asignar" />
+                            <input class="button" type="reset" value="Limpiar" />
+                        </td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <br>
+    {% if respuesta %}
+       <h1 >Grabo Mascota</h1>
+    {% endif %}
+{% endblock %}

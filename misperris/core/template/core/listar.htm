@@ -1,0 +1,39 @@
+{% extends 'core/base_mascota.htm' %}
+{% block titulo %}
+listado de mascotas
+{% endblock%}
+{% block contenedor %}
+{% load static %}
+
+    <h1>Listado de Mascotas</h1>{{MEDIA_URL}}
+    <table class="table" border="1">
+        <tr>
+            <td>Id</td>
+            <td>Foto</td>
+            <td>Nombre</td>
+            <td>Raza</td>
+            <td>Descripcion</td>
+            <td>Estado</td>
+        </tr>
+        {% for m in mascotas %}
+        <tr>
+            <td>{{m.name}}</td>
+            <td><img class="img-listado" src=' {% static 'media/' %}{{m.foto}} '></td>
+            <td>{{m.nombre}}</td>
+            <td>{{m.raza}}</td>
+            <td>{{m.descripcion}}</td>
+            <td>{{m.estado}}</td>
+        </tr>
+        {% endfor %}
+        {% for m in mascota %}
+        <tr>
+            <td>{{m.name}}</td>
+            <td><img class="img-listado" src=' {% static 'media/' %}{{m.foto}} '></td>
+            <td>{{m.nombre}}</td>
+            <td>{{m.raza}}</td>
+            <td>{{m.descripcion}}</td>
+            <td>{{m.estado}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock%}

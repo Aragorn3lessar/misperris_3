@@ -1,0 +1,25 @@
+{
+    "name": "misperris python",
+    "short_name": "misperris",
+    "icons": [
+        {
+          "src": "/core/static/img/Apolo.jpg",
+          "type": "image/png",
+          "sizes": "48x48"
+        }, 
+  
+        {
+          "src": "/core/static/img/Duque.jpg",
+          "type": "image/png",
+          "sizes": "72x72"
+        }, 
+        {
+          "src": "/core/static/img/Tom.jpg",
+          "type": "image/png",
+          "sizes": "96x96"
+        }
+        ],
+    "start_url": "/base=1",
+    "scope": "/"
+  }
+  

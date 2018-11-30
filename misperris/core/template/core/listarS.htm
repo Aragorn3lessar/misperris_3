@@ -1,0 +1,31 @@
+{% extends 'core/base_socio.htm' %}
+{% block titulo %}
+listado de mascotas
+{% endblock%}
+{% block contenedor %}
+    <h1>Listado de Socios</h1>
+    <table class="table" border="1">
+        <tr>
+            <td>Rut</td>
+            <td>Nombre</td>
+            <td>Correo</td>
+            <td>Fecha Nacimiento</td>
+            <td>Telefono</td>
+            <td>Region</td>
+            <td>Ciudad</td>
+            <td>Tipo Vivienda</td>
+        </tr>
+        {% for s in socios %}
+        <tr>
+            <td>{{s.name}}</td>
+            <td>{{s.nombre}}</td>
+            <td>{{s.correo}}</td>
+            <td>{{s.fecha_n}}</td>
+            <td>{{s.telefono}}</td>
+            <td>{{s.region}}</td>
+            <td>{{s.ciudad}}</td>
+            <td>{{s.tipo_viv}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock%}

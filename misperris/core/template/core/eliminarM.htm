@@ -1,0 +1,21 @@
+{% extends 'core/base_mascota.htm' %}
+{% block titulo %}
+eliminar mascota
+{% endblock%}
+{% block contenedor %}
+    <h1>Eliminar Mascota</h1>
+    <form method="POST">
+        <table class="tableRegistrar" border="1">
+            {% csrf_token %}
+            <td>Ingrese id de mascota a Eliminar:</td>
+            
+            <td><input type="text" name="code" value="{{so.name}}" /></td>
+            
+            <td><input class="button" type="submit" value="Eliminar"/>
+            <a class="button" href="{% url 'home' %}">Volver</a></td>
+        </table>
+    </form>
+    {% if respuesta %}
+        <h1>Elimino</h1>
+    {% endif %}
+{% endblock%}

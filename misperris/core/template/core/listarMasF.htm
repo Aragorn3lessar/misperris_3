@@ -1,0 +1,21 @@
+{% extends 'core/base_mascota.htm' %}
+{% block titulo %}
+listado de mascotas
+{% endblock%}
+{% block contenedor %}
+{% load static %}
+
+    <h1>Listado de Mascotas</h1>{{MEDIA_URL}}
+    <table class="table" border="1">
+        <tr>
+            <td>Rut</td>
+            <td>Perro</td>
+        </tr>
+        {% for m in masado %}
+        <tr>
+            <td>{{m.id_socio}}</td>
+            <td>{{m.id_mascota}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock%}
